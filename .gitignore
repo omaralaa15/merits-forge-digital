@@ -16,6 +16,8 @@ dist-ssr
 .nitro
 *.local
 .env
+*.mjs
+.agents/
 
 # Wrangler / Cloudflare
 .wrangler/
@@ -31,3 +33,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
