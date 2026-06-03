@@ -1,0 +1,158 @@
+/* ============================================================
+   🎨 MERITS — Design Token System & Color Distribution
+   ============================================================
+   The designer adheres to a strict 70/20/10 geometric color
+   distribution for a premium, high-tech visual output:
+
+   ┌─────────────────────┬────────────┬────────┬──────────────────────────────┐
+   │ Color Name          │ HEX Code   │  Dist. │ Visual/UI Usage              │
+   ├─────────────────────┼────────────┼────────┼──────────────────────────────┤
+   │ White               │ #FFFFFF    │   70%  │ Primary backgrounds, empty   │
+   │                     │            │        │ space, structural layout —   │
+   │                     │            │        │ ensures clarity & purity     │
+   ├─────────────────────┼────────────┼────────┼──────────────────────────────┤
+   │ Primary Turquoise   │ #19BFB7    │   20%  │ Logo, main headings, icons,  │
+   │                     │            │        │ active links                 │
+   ├─────────────────────┼────────────┼────────┼──────────────────────────────┤
+   │ Accent Pink         │ #C2185B    │   10%  │ CTA buttons, main offers,    │
+   │                     │            │        │ alerts, important elements   │
+   ├─────────────────────┼────────────┼────────┼──────────────────────────────┤
+   │ Primary Dark        │ #129E98    │   —    │ Helper for turquoise: hover  │
+   │                     │            │        │ states, header, dark subs    │
+   ├─────────────────────┼────────────┼────────┼──────────────────────────────┤
+   │ Accent Hover        │ #9B1248    │   —    │ Helper for pink: hover       │
+   │                     │            │        │ effects on decision buttons  │
+   ├─────────────────────┼────────────┼────────┼──────────────────────────────┤
+   │ Dark Navy           │ #0F172A    │   —    │ Long text, paragraphs,       │
+   │                     │            │        │ footer — text color          │
+   └─────────────────────┴────────────┴────────┴──────────────────────────────┘
+   ============================================================ */
+
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Cairo", "Tajawal", system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-hover: var(--accent-hover);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy: var(--navy);
+  --color-soft: var(--soft);
+
+  --gradient-hero: linear-gradient(135deg, #19bfb7 0%, #0f172a 100%);
+  --gradient-cta: linear-gradient(135deg, #c2185b 0%, #9b1248 100%);
+  --gradient-primary: linear-gradient(135deg, #19bfb7 0%, #129e98 100%);
+  --shadow-glow: 0 20px 60px -20px color-mix(in oklab, #19bfb7 50%, transparent);
+  --shadow-accent: 0 12px 40px -12px color-mix(in oklab, #c2185b 45%, transparent);
+  --shadow-card: 0 4px 24px -8px rgb(15 23 42 / 0.08);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* ── White (#FFFFFF) — 70% — backgrounds, structure, space ── */
+  --background: oklch(1 0 0);
+  --card: oklch(1 0 0);
+  --popover: oklch(1 0 0);
+
+  /* ── Dark Navy (#0F172A) — text color for paragraphs, footer ── */
+  --foreground: oklch(0.18 0.04 260);
+  --card-foreground: oklch(0.18 0.04 260);
+  --popover-foreground: oklch(0.18 0.04 260);
+
+  /* ── Primary Turquoise (#19BFB7) — 20% — logo, headings, icons, links ── */
+  --primary: oklch(0.74 0.12 195);
+  --primary-foreground: oklch(1 0 0);
+
+  /* ── Primary Dark (#129E98) — helper: hover states, header, dark subs ── */
+  --primary-dark: oklch(0.63 0.11 195);
+  --primary-light: oklch(0.83 0.1 195);
+
+  /* ── Accent Pink (#C2185B) — 10% — CTA buttons, alerts, highlights ── */
+  --accent: oklch(0.52 0.2 5);
+  --accent-foreground: oklch(1 0 0);
+  --accent-hover: oklch(0.44 0.19 5);
+  --secondary: oklch(0.97 0.01 220);
+  --secondary-foreground: oklch(0.18 0.04 260);
+  --muted: oklch(0.97 0.01 220);
+  --muted-foreground: oklch(0.48 0.03 260);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.01 220);
+  --input: oklch(0.92 0.01 220);
+  --ring: oklch(0.74 0.12 195);
+
+  /* ── Extra semantic tokens ── */
+  --navy: oklch(0.21 0.04 260);
+  --soft: oklch(0.98 0.005 240);
+
+  --sidebar: oklch(0.98 0.003 247);
+  --sidebar-foreground: oklch(0.18 0.04 260);
+  --sidebar-primary: oklch(0.74 0.12 195);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.97 0.01 220);
+  --sidebar-accent-foreground: oklch(0.18 0.04 260);
+  --sidebar-border: oklch(0.92 0.01 220);
+  --sidebar-ring: oklch(0.74 0.12 195);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@utility bg-gradient-hero {
+  background-image: var(--gradient-hero);
+}
+@utility bg-gradient-cta {
+  background-image: var(--gradient-cta);
+}
+@utility bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+@utility shadow-accent {
+  box-shadow: var(--shadow-accent);
+}
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
